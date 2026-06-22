@@ -181,6 +181,30 @@ Body JSON
   }
 }
 ```
+Respuesta:
+```
+{
+  "message": "Envío registrado correctamente",
+  "data": {
+    "codigoPedido": "PED-001",
+    "remitente": {
+      "nombre": "Paul Solano",
+      "telefono": "931294000",
+      "direccionOrigen": "Av. Los Geranios 147, Lima"
+    },
+    "destinatario": {
+      "nombre": "Maura Torres",
+      "telefono": "912345678",
+      "direccionEntrega": "Jr. Las Flores 456, Callao"
+    },
+    "estado": "pendiente",
+    "_id": "6a3934666e2a774d3981764e",
+    "createdAt": "2026-06-22T13:11:02.675Z",
+    "updatedAt": "2026-06-22T13:11:02.675Z"
+  }
+}
+```
+
 ## 2. Consultar envíos activos
 
 Método
@@ -196,7 +220,7 @@ URL completa
 http://localhost:3000/api/envios
 ```
 
-resultado : 
+Respuesta : 
 ```
 
 [
@@ -222,7 +246,7 @@ URL completa
 http://localhost:3000/api/envios/ID_DEL_ENVIO
 ```
 
-resultado : 
+Respuesta : 
 ```
 {
   "remitente": {
@@ -263,7 +287,7 @@ Body JSON
 }
 ```
 
-resultado : 
+Respuesta : 
 
 ```
 res.json({
