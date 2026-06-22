@@ -53,7 +53,11 @@ const envioController = {
             // Respuesta exitosa
             res.json({
                 message: "Estado actualizado correctamente",
-                data: envio
+                data: {
+                    _id: envio._id,
+                    codigoPedido: envio.codigoPedido,
+                    estado: envio.estado
+                }
             });
 
         } catch (error) {
@@ -71,9 +75,10 @@ const envioController = {
 
             // Buscamos todos los envíos cuyo estado NO sea "entregado"
             // $ne = "not equal" (distinto de)
-            const envios = await EnvioModel.find({
-                estado: { $ne: "entregado" }
-            });
+            const envios = await EnvioModel.find(
+                { estado: { $ne: "entregado" } },
+                "_id codigoPedido estado"
+            );
 
             // Devolvemos la lista de envíos activos
             res.json(envios);
