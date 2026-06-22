@@ -34,4 +34,5 @@ mongoose.connect(mongoDB)
 
 // Exportamos mongoose para poder usarlo en otros archivos del proyecto
 // Ejemplo: modelos (schemas), controllers, etc.
+// Te doy mongoose ya configurado con la conexión lista
 module.exports = mongoose;
