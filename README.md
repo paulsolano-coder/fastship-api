@@ -5,7 +5,9 @@ API desarrollada con Node.js, Express y MongoDB.
 ## Tecnologías
 - Node.js
 - Express
-- MongoDB
+- MongoDB Atlas
+- Mongoose
+- dotenv
 
 ## 📁 Estructura del proyecto
 
