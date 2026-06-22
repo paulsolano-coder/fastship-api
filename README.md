@@ -98,7 +98,7 @@ La aplicación utiliza una colección única llamada `envios`. A continuación s
 ## 📥 Clonar el repositorio
 
 ```bash
-git clone URL_DEL_REPOSITORIO
+git clone https://github.com/paulsolano-coder/fastship-api.git
 ```
 
 ## 📂 Ingresar al proyecto
@@ -117,33 +117,56 @@ Crear un archivo `.env` en la raíz del proyecto con la siguiente configuración
 PORT=3000
 MONGO_URI=TU_CADENA_DE_CONEXION_MONGODB
 ```
-Nota: el nombre de la variable de conexión debe coincidir con el que estés usando en config/db.js.
-Ejecutar el proyecto
+> [!NOTE]
+> Nota: el nombre de la variable de conexión debe coincidir con el que estés usando en config/db.js.
+
+# Ejecutar el proyecto
+
 Para iniciar el servidor:
+```bash
 node src/app.js
+```
 Si se tiene configurado un script en package.json, también puede ejecutarse:
+```bash
 npm start 
-o tambien: 
+```
+o tambien:
+```bash 
 npm run dev
+```
 El servidor se ejecutará en:
+```
 http://localhost:3000
+```
+
 Respuesta esperada:
+```
 🚀 FastShip API funcionando correctamente
+```
 
-Endpoints de la API
+# Endpoints de la API
+
 La URL base de la API es:
+```
 http://localhost:3000/api
+```
 
-********************************************************************************
-1. Registrar nuevo envío
-********************************************************************************
+## 1. Registrar nuevo envío
+
 Método
+```
 POST
+```
 Endpoint
+```
 /api/envios
+```
 URL completa
+```
 http://localhost:3000/api/envios
+```
 Body JSON
+```
 {
   "codigoPedido": "PED-001",
   "remitente": {
@@ -157,17 +180,24 @@ Body JSON
     "direccionEntrega": "Jr. Las Flores 456, Callao"
   }
 }
-********************************************************************************
-2. Consultar envíos activos
-********************************************************************************
+```
+## 2. Consultar envíos activos
+
 Método
+```
 GET
+```
 Endpoint
+```
 /api/envios
+```
 URL completa
+```
 http://localhost:3000/api/envios
+```
 
 resultado : 
+```
 
 [
   {
@@ -176,16 +206,24 @@ resultado :
     "estado": "pendiente"
   }
 ]
-********************************************************************************
-3. Buscar envío por ID
-********************************************************************************
-Método
-GET
-Endpoint
-/api/envios/:id
-URL completa
-http://localhost:3000/api/envios/ID_DEL_ENVIO
+```
+## 3. Buscar envío por ID
 
+Método
+```
+GET
+```
+Endpoint
+```
+/api/envios/:id
+```
+URL completa
+```
+http://localhost:3000/api/envios/ID_DEL_ENVIO
+```
+
+resultado : 
+```
 {
   "remitente": {
     "nombre": "Paul Solano",
@@ -203,23 +241,31 @@ http://localhost:3000/api/envios/ID_DEL_ENVIO
   "createdAt": "2026-06-22T08:35:19.255Z",
   "updatedAt": "2026-06-22T08:35:19.255Z"
 }
+```
+## 4. Actualizar estado del envío
 
-********************************************************************************
-4. Actualizar estado del envío
-********************************************************************************
 Método
+```
 PATCH
+```
 Endpoint
+```
 /api/envios/:id/estado
+```
 URL completa
+```
 http://localhost:3000/api/envios/ID_DEL_ENVIO/estado
+```
 Body JSON
+```
 {
   "estado": "en_transito"
 }
+```
 
 resultado : 
 
+```
 res.json({
     message: "Estado actualizado correctamente",
     data: {
@@ -228,4 +274,4 @@ res.json({
         estado: envio.estado
     }
 });
-********************************************************************************
+```
